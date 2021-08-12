@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Counter</title>
+</head>
+<body>
+        <h1>Counter</h1>
+        <h2>{{ session['counter'] }}</h2>
+        <h1>Times actually visited</h1>
+        <h2>{{ session['true_counter'] }}</h2>
+        <div>
+            <a href="/"><button id='plus-1'>Click to add 1</button></a>
+            <a href="/2"><button id='plus-2'>Click to add 2</button></a>
+            <a href="/destroy_session"><button id='soft_reset'>Reset Counter</button></a>
+        </div>
+        <form action="/add" method="POST">
+            <label for="num">Add this many to counter:</label>
+            <input type="number" name="num" id="num" step="1" value="1" min="1">
+            <input type="submit" value="Add!">
+        </form>
+        <a href="/hard_reset"><button id='Hard_reset'>Reset Both Counters</button></a>
+</body>
+</html>
